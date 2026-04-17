@@ -202,6 +202,12 @@ Three projects form a spectrum:
 
 ---
 
+## Friendly Links
+
+- [linxin.do](https://linxin.do)
+
+---
+
 ## License
 
 MIT — use it, modify it, build on it. And if growth makes your judgment sharper, **stop relying on growth**. That's the graduation.

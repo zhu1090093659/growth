@@ -201,6 +201,12 @@ growth 做的是相反的事：**让你成为更好的自己**。
 
 ---
 
+## 友情链接
+
+- [linxin.do](https://linxin.do)
+
+---
+
 ## License
 
 MIT — 随便用，随便改，随便造。如果 growth 让你的判断力变强了，记得**别再依赖 growth**，那是毕业的时候。
