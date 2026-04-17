@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # growth - install script
 # Usage: ./install.sh <platform>
-#   platforms: claude-code | codex | gemini | cursor | cursor-global
+#   platforms: codex | gemini | cursor | cursor-global
+#
+# Claude Code users: install via the plugin marketplace instead of this script.
+#   /plugin marketplace add YOUR_USERNAME/growth
+#   /plugin install growth@growth
+# See https://code.claude.com/docs/en/plugin-marketplaces
 
 set -euo pipefail
 
@@ -15,14 +20,17 @@ growth — 思考训练 skill 集合
 Usage: ./install.sh <platform>
 
 Platforms:
-  claude-code      Install to ~/.claude/skills/
   codex            Install to ~/.codex/skills/
   gemini           Install as Gemini CLI extension (requires gemini CLI)
   cursor           Copy .mdc rules to ./.cursor/rules/ (current project)
   cursor-global    Copy .mdc rules to ~/.cursor/rules/ (user-wide)
 
+For Claude Code, use the plugin marketplace instead:
+  /plugin marketplace add YOUR_USERNAME/growth
+  /plugin install growth@growth
+
 Example:
-  ./install.sh claude-code
+  ./install.sh codex
 EOF
   exit 1
 fi
@@ -47,11 +55,16 @@ copy_mdc_to() {
 
 case "$PLATFORM" in
   claude-code)
-    DST="$HOME/.claude/skills"
-    echo "Installing growth skills to $DST ..."
-    copy_skills_to "$DST"
-    echo ""
-    echo "✓ Done. Restart Claude Code to load the new skills."
+    cat <<EOF
+✗ Claude Code no longer uses this script.
+
+Install via the official plugin marketplace instead:
+  /plugin marketplace add YOUR_USERNAME/growth
+  /plugin install growth@growth
+
+Docs: https://code.claude.com/docs/en/plugin-marketplaces
+EOF
+    exit 1
     ;;
 
   codex)

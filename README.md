@@ -2,17 +2,43 @@
 
 > **AI 时代最反潮流的一套 skill：不替你思考，只逼你思考。**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blueviolet)](https://claude.ai/code)
-[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-black)](https://developers.openai.com/codex/cli)
-[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
-[![Cursor](https://img.shields.io/badge/Cursor-Compatible-000000)](https://cursor.com)
+**中文** | [English](./README.en.md)
+
+[![Stars](https://img.shields.io/github/stars/zhu1090093659/growth?style=flat&logo=github&label=Stars)](https://github.com/zhu1090093659/growth/stargazers)
+[![Forks](https://img.shields.io/github/forks/zhu1090093659/growth?style=flat&logo=github&label=Forks)](https://github.com/zhu1090093659/growth/network/members)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Claude%20Code%20%7C%20Codex%20%7C%20Gemini%20%7C%20Cursor-e74c3c)
 
 当所有 AI 工具都在告诉你"我帮你更快写代码、更快写文档、更快做判断"时，growth 做的是完全相反的事：**它让你慢下来，问出那些你不愿意问自己的问题。**
 
 因为在 AI 可靠的未来，真正稀缺的不是生产力，是**你自己的判断力、品味、意图清晰度和抽象能力**。这些能力无法被蒸馏，只能在你自己的大脑里长出来。growth 是为了训练它们而做的。
 
-[**English**](./README.en.md) · [四个 skill](#四个-skill) · [安装](#安装) · [设计哲学](#设计哲学) · [Roadmap](#roadmap)
+---
+
+## 目录
+
+- [这是什么](#这是什么)
+- [四个 skill](#四个-skill)
+- [效果示例](#效果示例)
+- [平台兼容性](#平台兼容性)
+- [安装](#安装)
+- [设计哲学](#设计哲学)
+- [诚实边界](#诚实边界)
+- [用法建议](#用法建议)
+- [诚实的版本说明](#诚实的版本说明)
+- [Roadmap](#roadmap)
+- [贡献](#贡献)
+- [相关项目](#相关项目)
+- [友情链接](#友情链接)
+- [License](#license)
+
+---
+
+## 这是什么
+
+growth 是一套**思考训练 skill**，装到你的 AI 编程工具里，不会替你写代码，只会在你准备写代码之前、之中、之后，逼你把那些没想清楚的问题想清楚。
+
+四个 skill 分别处理四种心智卡点：代码/设计好不好、需求到底要什么、决策哪里可能错、抽象是否够好。它们不提供答案，只提供越来越锋利的问题。
 
 ---
 
@@ -20,10 +46,10 @@
 
 | Skill | 触发场景 | 核心问题 |
 |---|---|---|
-| 🎨 **taste-audit** | 已经有代码/设计在手，想判断好不好 | 这东西美不美？丑在哪？ |
-| 🎯 **intent-refine** | 想做某事但描述模糊，在定义需求 | 你到底想要什么？为什么？ |
-| 🗡️ **judgment-redteam** | 做出了决策，倾向某个方案 | 你哪里可能是错的？ |
-| 🏗️ **abstraction-uplift** | 代码已经 work，想问"还能不能更好" | 当前抽象合理吗？ |
+| **taste-audit** | 已经有代码/设计在手，想判断好不好 | 这东西美不美？丑在哪？ |
+| **intent-refine** | 想做某事但描述模糊，在定义需求 | 你到底想要什么？为什么？ |
+| **judgment-redteam** | 做出了决策，倾向某个方案 | 你哪里可能是错的？ |
+| **abstraction-uplift** | 代码已经 work，想问"还能不能更好" | 当前抽象合理吗？ |
 
 ---
 
@@ -35,7 +61,7 @@
 用户      ❯ 帮我看看这段代码写得怎么样？
             [贴了一段 200 行的 Python 类]
 
-Claude    ❯ 📍 Phase 1 → 激活感受
+Claude    ❯ Phase 1 → 激活感受
 
             先不谈技术——你读这段代码的第一感觉是什么？
             一个词形容。
@@ -51,21 +77,37 @@ Claude    ❯ "还行"是真没感觉，还是感觉没想清楚？
 
 ---
 
+## 平台兼容性
+
+| 平台 | 安装方式 | Skill 位置 | 备注 |
+|---|---|---|---|
+| Claude Code | 官方插件市场 | `~/.claude/plugins/cache/…` | 带命名空间：`/growth:taste-audit` |
+| Codex CLI | `./install.sh codex` | `~/.codex/skills/` | SKILL.md 与 Claude Code 互通 |
+| Gemini CLI | `gemini extensions install` | Gemini extension | 带 `GEMINI.md` context |
+| Cursor | `./install.sh cursor` | `.cursor/rules/` | `.mdc` 格式 |
+
+---
+
 ## 安装
 
 四个平台都支持，根据你用的工具选一个：
 
-### 🤖 Claude Code
+### Claude Code
 
-```bash
-git clone https://github.com/YOUR_USERNAME/growth.git
-cd growth
-./install.sh claude-code
+通过官方插件市场安装（[docs](https://code.claude.com/docs/en/plugin-marketplaces)）：
+
+```
+/plugin marketplace add YOUR_USERNAME/growth
+/plugin install growth@growth
 ```
 
-或手动复制 `skills/` 下的四个子目录到 `~/.claude/skills/`。
+装好后，四个 skill 会带命名空间前缀出现：`/growth:taste-audit`、`/growth:intent-refine`、`/growth:judgment-redteam`、`/growth:abstraction-uplift`。
 
-### 🧬 Codex CLI
+更新：`/plugin marketplace update growth`。卸载：`/plugin uninstall growth@growth`。
+
+> 本地调试可以 `git clone` 后用 `/plugin marketplace add ./growth`，或 `claude --plugin-dir ./growth` 直接加载。
+
+### Codex CLI
 
 Codex 的 SKILL.md 格式和 Claude Code 完全兼容，直接：
 
@@ -75,7 +117,7 @@ Codex 的 SKILL.md 格式和 Claude Code 完全兼容，直接：
 
 或手动复制到 `~/.codex/skills/`（Codex 的 Agent Skills 位置）。
 
-### ✨ Gemini CLI
+### Gemini CLI
 
 Gemini 以 extension 的方式安装：
 
@@ -89,7 +131,7 @@ gemini extensions install https://github.com/YOUR_USERNAME/growth/tree/main/plat
 gemini extensions install ./platforms/gemini-cli
 ```
 
-### 🖱️ Cursor
+### Cursor
 
 ```bash
 ./install.sh cursor

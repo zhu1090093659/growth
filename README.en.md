@@ -2,17 +2,43 @@
 
 > **The most counter-cultural skill set of the AI era: doesn't think for you, forces you to think.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blueviolet)](https://claude.ai/code)
-[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-black)](https://developers.openai.com/codex/cli)
-[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
-[![Cursor](https://img.shields.io/badge/Cursor-Compatible-000000)](https://cursor.com)
+[中文](./README.md) | **English**
+
+[![Stars](https://img.shields.io/github/stars/zhu1090093659/growth?style=flat&logo=github&label=Stars)](https://github.com/zhu1090093659/growth/stargazers)
+[![Forks](https://img.shields.io/github/forks/zhu1090093659/growth?style=flat&logo=github&label=Forks)](https://github.com/zhu1090093659/growth/network/members)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Claude%20Code%20%7C%20Codex%20%7C%20Gemini%20%7C%20Cursor-e74c3c)
 
 While every AI tool promises to help you write code, docs, and decisions **faster**, growth does the opposite: **it slows you down and asks questions you don't want to ask yourself.**
 
 Because in a future where AI is reliable, the real scarcity isn't productivity — it's **your own judgment, taste, intent clarity, and abstraction ability.** These cannot be distilled. They can only grow inside your own brain. growth is built to train them.
 
-[**中文**](./README.md) · [Four Skills](#four-skills) · [Install](#install) · [Philosophy](#philosophy) · [Roadmap](#roadmap)
+---
+
+## Table of Contents
+
+- [What It Does](#what-it-does)
+- [Four Skills](#four-skills)
+- [Example Interaction](#example-interaction)
+- [Platform Compatibility](#platform-compatibility)
+- [Install](#install)
+- [Philosophy](#philosophy)
+- [Honest Limitations](#honest-limitations)
+- [Usage Tips](#usage-tips)
+- [Version Honesty](#version-honesty)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Related Projects](#related-projects)
+- [Friendly Links](#friendly-links)
+- [License](#license)
+
+---
+
+## What It Does
+
+growth is a set of **thinking-training skills** you install into your AI coding tool. It doesn't write code for you. It forces you — before, during, and after you write code — to finish the thinking you were about to skip.
+
+The four skills target four mental bottlenecks: whether the code/design is good, what the requirement actually is, where the decision could be wrong, and whether the abstraction is right. They never give answers, only progressively sharper questions.
 
 ---
 
@@ -20,14 +46,14 @@ Because in a future where AI is reliable, the real scarcity isn't productivity �
 
 | Skill | When to use | Core question |
 |---|---|---|
-| 🎨 **taste-audit** | You have code/design in hand, want to know if it's good | Is this beautiful? Where is it ugly? |
-| 🎯 **intent-refine** | You want to do something but your description is fuzzy | What exactly do you want? Why? |
-| 🗡️ **judgment-redteam** | You've made a decision, leaning toward a plan | Where are you most likely wrong? |
-| 🏗️ **abstraction-uplift** | Your code works, but you wonder "could it be better?" | Is the current abstraction right? |
+| **taste-audit** | You have code/design in hand, want to know if it's good | Is this beautiful? Where is it ugly? |
+| **intent-refine** | You want to do something but your description is fuzzy | What exactly do you want? Why? |
+| **judgment-redteam** | You've made a decision, leaning toward a plan | Where are you most likely wrong? |
+| **abstraction-uplift** | Your code works, but you wonder "could it be better?" | Is the current abstraction right? |
 
 ---
 
-## Example interaction
+## Example Interaction
 
 Unlike [nuwa-skill](https://github.com/alchaincyf/nuwa-skill), which distills how others think (Munger, Musk, Naval), growth makes **you** think. Here's a real taste-audit session:
 
@@ -35,7 +61,7 @@ Unlike [nuwa-skill](https://github.com/alchaincyf/nuwa-skill), which distills ho
 User      ❯ Can you review this code for me?
             [pastes a 200-line Python class]
 
-Claude    ❯ 📍 Phase 1 → Awareness
+Claude    ❯ Phase 1 → Awareness
 
             Before we get technical — what's your first gut reaction
             reading this code? One word.
@@ -52,21 +78,37 @@ Claude isn't reviewing the code. Claude is pushing the judgment **back onto you*
 
 ---
 
+## Platform Compatibility
+
+| Platform | Install | Skill location | Notes |
+|---|---|---|---|
+| Claude Code | Official plugin marketplace | `~/.claude/plugins/cache/…` | Namespaced: `/growth:taste-audit` |
+| Codex CLI | `./install.sh codex` | `~/.codex/skills/` | SKILL.md interoperable with Claude Code |
+| Gemini CLI | `gemini extensions install` | Gemini extension | Ships with `GEMINI.md` context |
+| Cursor | `./install.sh cursor` | `.cursor/rules/` | `.mdc` format |
+
+---
+
 ## Install
 
 Four platforms supported — pick yours:
 
-### 🤖 Claude Code
+### Claude Code
 
-```bash
-git clone https://github.com/YOUR_USERNAME/growth.git
-cd growth
-./install.sh claude-code
+Install via the official plugin marketplace ([docs](https://code.claude.com/docs/en/plugin-marketplaces)):
+
+```
+/plugin marketplace add YOUR_USERNAME/growth
+/plugin install growth@growth
 ```
 
-Or manually copy the four subdirectories in `skills/` to `~/.claude/skills/`.
+Once installed, the four skills appear with the plugin namespace: `/growth:taste-audit`, `/growth:intent-refine`, `/growth:judgment-redteam`, `/growth:abstraction-uplift`.
 
-### 🧬 Codex CLI
+Update: `/plugin marketplace update growth`. Uninstall: `/plugin uninstall growth@growth`.
+
+> For local development: `git clone` then `/plugin marketplace add ./growth`, or `claude --plugin-dir ./growth` to sideload.
+
+### Codex CLI
 
 Codex uses the same `SKILL.md` format as Claude Code, so:
 
@@ -76,7 +118,7 @@ Codex uses the same `SKILL.md` format as Claude Code, so:
 
 Or manually copy to `~/.codex/skills/`.
 
-### ✨ Gemini CLI
+### Gemini CLI
 
 Install as a Gemini CLI extension:
 
@@ -90,7 +132,7 @@ Or via local path:
 gemini extensions install ./platforms/gemini-cli
 ```
 
-### 🖱️ Cursor
+### Cursor
 
 ```bash
 ./install.sh cursor

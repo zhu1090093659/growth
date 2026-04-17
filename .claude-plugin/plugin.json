@@ -1,0 +1,12 @@
+{
+  "name": "growth",
+  "description": "四个思考训练 skill：taste-audit、intent-refine、judgment-redteam、abstraction-uplift。AI 时代最反潮流的一套 skill——不替你思考，只逼你思考。",
+  "version": "0.1.0",
+  "author": {
+    "name": "growth contributors"
+  },
+  "homepage": "https://github.com/zhu1090093659/growth",
+  "repository": "https://github.com/zhu1090093659/growth",
+  "license": "MIT",
+  "keywords": ["thinking", "socratic", "taste", "judgment", "abstraction", "skill"]
+}
